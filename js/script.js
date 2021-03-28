@@ -2,10 +2,21 @@ var scheduleFormEl = $('#form-1');
 var scheduleDataInputEl = $('#schedule-desc-1');
 var dayActivity = [];
 
-// momentjs
+// momentjs : displaying current date
 var today = moment();
 $("#currentDay").text(today.format("dddd, MMMM Do YYYY"));
 
+
+//current hour
+currentHour = moment().format("hA"); 
+var compareTime = moment('9AM');
+
+if (currentHour.isBefore(compareTime)){
+    console.log("not gone");
+}
+else{
+    console.log("gone");
+}
 // handle schedule form submission
 function handleProjectFormSubmit(event) {
     event.preventDefault();  
