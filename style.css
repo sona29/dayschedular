@@ -74,8 +74,11 @@ input[type="text"] {
   background-color: lightgrey;
 }
 
-button {
+/* button {
   border: none;
-  background: url("assets/images/save.png") no-repeat top left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-image: url(assets/images/save.png);
   padding: 2px 8px;
-}
+  background-position: center center;
+} */
