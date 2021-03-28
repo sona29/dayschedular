@@ -74,7 +74,7 @@ input[type="text"] {
   background-color: lightgrey;
 }
 
-.button {
+button {
   border: none;
   background: url("assets/images/save.png") no-repeat top left;
   padding: 2px 8px;
