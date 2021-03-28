@@ -8,22 +8,17 @@ $("#currentDay").text(today.format("dddd, MMMM Do YYYY"));
 
 
 //current hour
-currentHour = moment().format("hA"); 
-var compareTime = moment('9AM');
+currentHour = moment().format("HH"); 
 
-if (currentHour.isBefore(compareTime)){
-    console.log("not gone");
-}
-else{
-    console.log("gone");
-}
 // handle schedule form submission
 function handleProjectFormSubmit(event) {
     event.preventDefault();  
     var scheduleData = scheduleDataInputEl.val().trim();
-    console.log(scheduleData);  
+    // console.log(scheduleData);  
     dayActivity.push({dayActivity: scheduleData});
     localStorage.setItem("dayActivity", JSON.stringify(dayActivity)); 
+    // to get value of data-index
+
 }
 
 textBox1 = JSON.parse(localStorage.getItem("dayActivity"));
