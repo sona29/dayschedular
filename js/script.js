@@ -1,5 +1,5 @@
 var scheduleFormEl = $('#form-1');
-var scheduleDataInputEl = $('#schedule-desc-1');
+var scheduleDataInputEl = $('#9');
 var dayActivity = [];
 
 // momentjs : displaying current date
@@ -17,13 +17,22 @@ function handleProjectFormSubmit(event) {
     // console.log(scheduleData);  
     dayActivity.push({dayActivity: scheduleData});
     localStorage.setItem("dayActivity", JSON.stringify(dayActivity)); 
-    // to get value of data-index
-
 }
 
-textBox1 = JSON.parse(localStorage.getItem("dayActivity"));
-console.log(textBox1);
-$('#schedule-desc-1').val(textBox1[0].dayActivity);
+textBox1 = JSON.parse(localStorage.getItem("dayActivity")) || [];
+if(textBox1.length){
+    console.log(textBox1);
+    $('#9').val(textBox1[0].dayActivity);
+}
 
+
+//checking time compared to current time
+if(parseInt(scheduleDataInputEl) == currentHour ){
+    $('#9').css('background', 'red'); 
+}
+
+if(parseInt(scheduleDataInputEl) > currentHour ){
+    $('#9').css('background', 'green');
+}
 
 scheduleFormEl.on('submit', handleProjectFormSubmit);
