@@ -26,20 +26,23 @@ function handleProjectFormSubmit(event) {
     // console.log(targetData) ;
     var inputData = $(`#${targetData}`).val();
     
-    var scheduleData = inputData.trim();
-    // console.log(scheduleData);  
-    // dayActivity.push({dayActivity: scheduleData});
-
+    var scheduleData = inputData.trim(); 
+    //add into array
     dayActivity.push({hour: targetData, dayActivity: scheduleData});
-
+    //setting to local storage
     localStorage.setItem("dayActivity", JSON.stringify(dayActivity)); 
 }
 
-//getting stored 
-textBox1 = JSON.parse(localStorage.getItem("dayActivity")) || [];
-if(textBox1.length){
+//getting stored localstorage
+textBox = JSON.parse(localStorage.getItem("dayActivity")) || [];
+if(textBox.length){
+
+    for (var i = 0; i < textBox.length; i++){
+        // console.log(textBox[i].dayActivity);
+        $(textBox[i].hour).val(textBox[i].dayActivity);
+    }
     // console.log(textBox1);
-    $('#9').val(textBox1[0].dayActivity);
+    // $('#9').val(textBox1[0].dayActivity);
 }
 
 
