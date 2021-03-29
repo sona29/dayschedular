@@ -21,16 +21,24 @@ currentHour = moment().format("HH");
 // handle schedule form submission
 function handleProjectFormSubmit(event) {
     event.preventDefault();  
-    var scheduleData = scheduleDataInputEl1.val().trim();
+    console.log($(this).data("target"));
+    var targetData = $(this).data("target"); 
+    // console.log(targetData) ;
+    var inputData = $(`#${targetData}`).val();
+    
+    var scheduleData = inputData.trim();
     // console.log(scheduleData);  
-    dayActivity.push({dayActivity: scheduleData});
+    // dayActivity.push({dayActivity: scheduleData});
+
+    dayActivity.push({hour: targetData, dayActivity: scheduleData});
+
     localStorage.setItem("dayActivity", JSON.stringify(dayActivity)); 
 }
 
 //getting stored 
 textBox1 = JSON.parse(localStorage.getItem("dayActivity")) || [];
 if(textBox1.length){
-    console.log(textBox1);
+    // console.log(textBox1);
     $('#9').val(textBox1[0].dayActivity);
 }
 
@@ -50,4 +58,9 @@ $(".form-control").each(function() {
 });
 
 
-scheduleFormEl1.on('submit', handleProjectFormSubmit);
+$('form').each(function(){
+    $(this).on('submit', handleProjectFormSubmit);
+
+});
+
+// scheduleFormEl1.on('submit', handleProjectFormSubmit);
