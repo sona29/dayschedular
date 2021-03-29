@@ -39,7 +39,7 @@ if(textBox.length){
 
     for (var i = 0; i < textBox.length; i++){
         // console.log(textBox[i].dayActivity);
-        $(textBox[i].hour).val(textBox[i].dayActivity);
+        $(`#${textBox[i].hour}`).val(textBox[i].dayActivity);
     }
     // console.log(textBox1);
     // $('#9').val(textBox1[0].dayActivity);
