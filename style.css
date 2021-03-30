@@ -53,7 +53,7 @@ textarea {
 }
 
 .future {
-  background-color: #77dd77;
+  background-color: #91ce91;
   color: white;
 }
 
@@ -85,4 +85,8 @@ input[type="text"] {
 
 .label-content {
   text-align: right;
+}
+
+.alert {
+  display: none;
 }
