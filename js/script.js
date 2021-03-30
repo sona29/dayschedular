@@ -13,6 +13,14 @@ function handleProjectFormSubmit(event) {
     var inputData = $(`#${targetData}`).val();    
     var scheduleData = inputData.trim();     
     localStorage.setItem(targetData, scheduleData); 
+    if(scheduleData !== ''){
+        $('#success-msg').show();
+        $("#success-msg").fadeOut(3000);
+    }
+    else{
+        $('#validate-msg').show();
+        $("#validate-msg").fadeOut(3000);
+    }
 }
 
 //getting stored localstorage
@@ -27,11 +35,11 @@ $(".form-control").each(function() {
     var hour = $(this).attr('id')
 
     if(parseInt(hour) == currentHour ){
-        $(this).css('background', 'red'); 
+        $(this).css('background', '#ff3333'); 
     }
 
     if(parseInt(hour) > currentHour ){
-        $(this).css('background', 'green');
+        $(this).css('background', '#1affa3');
     }
     
 });
@@ -40,4 +48,6 @@ $(".form-control").each(function() {
 $('form').each(function(){
     $(this).on('submit', handleProjectFormSubmit);
 });
+
+
 
